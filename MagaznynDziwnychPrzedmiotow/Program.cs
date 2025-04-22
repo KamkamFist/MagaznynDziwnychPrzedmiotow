@@ -115,5 +115,14 @@ class Program
 
             storage.PrintAll();
         }
+        static void PrintFragileOrHeavy()
+        {
+            var storage = GetStorage();
+            if (storage == null) return;
+
+            Console.Write("Podaj próg wagi: ");
+            double threshold = double.Parse(Console.ReadLine());
+            storage.PrintFragileOrHeavy(threshold);
+        }
     }
 }
