@@ -2,54 +2,55 @@
 
 class Program
 {
+    static Dictionary<string, Storage> storages = new Dictionary<string, Storage>();
+
     static void Main()
     {
-        Console.Write("Enter storage capacity: ");
-        int capacity = int.Parse(Console.ReadLine());
-
-        Console.Write("Enter maximum total weight (kg): ");
-        double maxWeight = double.Parse(Console.ReadLine());
-
-        Storage storage = new Storage(capacity, maxWeight);
+        Console.WriteLine("=== Magazyn Dziwnych Przedmiotów ===");
 
         while (true)
         {
-            Console.WriteLine("\n1. Add item");
-            Console.WriteLine("2. Print all items");
-            Console.WriteLine("3. Exit");
-            Console.Write("Choose an option: ");
+            Console.WriteLine("\n1. Utwórz nowy magazyn");
+            Console.WriteLine("2. Dodaj przedmiot do magazynu");
+            Console.WriteLine("3. Usuń przedmiot z magazynu");
+            Console.WriteLine("4. Wypisz wszystkie przedmioty z magazynu");
+            Console.WriteLine("5. Wypisz delikatne lub ciężkie (powyżej progu)");
+            Console.WriteLine("6. Oblicz średni poziom dziwności");
+            Console.WriteLine("7. Lista magazynów");
+            Console.WriteLine("8. Wyjście");
+            Console.Write("Wybierz opcję: ");
+
             string choice = Console.ReadLine();
+            Console.WriteLine();
 
-            if (choice == "1")
+            switch (choice)
             {
-                Console.Write("Item name: ");
-                string name = Console.ReadLine();
-
-                Console.Write("Item weight (kg): ");
-                double weight = double.Parse(Console.ReadLine());
-
-                Console.Write("Weirdness level (1-10): ");
-                int level = int.Parse(Console.ReadLine());
-
-                Console.Write("Is the item fragile? (yes/no): ");
-                string fragileInput = Console.ReadLine();
-                bool isFragile = fragileInput.ToLower() == "yes";
-
-                Item item = new Item(name, weight, level, isFragile);
-                storage.AddItem(item);
-            }
-            else if (choice == "2")
-            {
-                storage.PrintAll();
-            }
-            else if (choice == "3")
-            {
-                Console.WriteLine("Exiting...");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice.");
+                case "1":
+                    CreateStorage();
+                    break;
+                case "2":
+                    AddItemToStorage();
+                    break;
+                case "3":
+                    RemoveItemFromStorage();
+                    break;
+                case "4":
+                    PrintItemsFromStorage();
+                    break;
+                case "5":
+                    PrintFragileOrHeavy();
+                    break;
+                case "6":
+                    PrintAverageWeirdness();
+                    break;
+                case "7":
+                    ListStorages();
+                    break;
+                case "8":
+                    return;
+                default:
+                    Console.WriteLine("Nieprawidłowa opcja.");
+                    break;
             }
         }
     }
