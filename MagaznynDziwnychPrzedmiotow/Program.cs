@@ -67,6 +67,7 @@ class Program
             storages[name] = new Storage(name, capacity, maxWeight);
             Console.WriteLine("Magazyn utworzony.");
         }
+
         static Storage GetStorage()
         {
             Console.Write("Podaj nazwę magazynu: ");
@@ -78,6 +79,7 @@ class Program
             Console.WriteLine("Magazyn nie istnieje.");
             return null;
         }
+
         static void AddItemToStorage()
         {
             var storage = GetStorage();
@@ -99,6 +101,7 @@ class Program
             var item = new Item(name, weight, weirdness, isFragile);
             storage.AddItem(item);
         }
+
         static void RemoveItemFromStorage()
         {
             var storage = GetStorage();
@@ -108,6 +111,7 @@ class Program
             string itemName = Console.ReadLine();
             storage.RemoveItem(itemName);
         }
+
         static void PrintItemsFromStorage()
         {
             var storage = GetStorage();
@@ -115,6 +119,7 @@ class Program
 
             storage.PrintAll();
         }
+
         static void PrintFragileOrHeavy()
         {
             var storage = GetStorage();
@@ -124,6 +129,7 @@ class Program
             double threshold = double.Parse(Console.ReadLine());
             storage.PrintFragileOrHeavy(threshold);
         }
+
         static void PrintAverageWeirdness()
         {
             var storage = GetStorage();
@@ -132,6 +138,7 @@ class Program
             double avg = storage.CalculateAverageWeirdness();
             Console.WriteLine($"Średnia dziwność: {avg:F2}");
         }
+
         static void ListStorages()
         {
             if (storages.Count == 0)
@@ -146,5 +153,6 @@ class Program
                 Console.WriteLine($"- {name}");
             }
         }
+
     }
 }
