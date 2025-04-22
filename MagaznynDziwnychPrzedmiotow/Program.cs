@@ -99,5 +99,14 @@ class Program
             var item = new Item(name, weight, weirdness, isFragile);
             storage.AddItem(item);
         }
+        static void RemoveItemFromStorage()
+        {
+            var storage = GetStorage();
+            if (storage == null) return;
+
+            Console.Write("Podaj nazwę przedmiotu do usunięcia: ");
+            string itemName = Console.ReadLine();
+            storage.RemoveItem(itemName);
+        }
     }
 }
