@@ -132,5 +132,19 @@ class Program
             double avg = storage.CalculateAverageWeirdness();
             Console.WriteLine($"Średnia dziwność: {avg:F2}");
         }
+        static void ListStorages()
+        {
+            if (storages.Count == 0)
+            {
+                Console.WriteLine("Brak magazynów.");
+                return;
+            }
+
+            Console.WriteLine("Dostępne magazyny:");
+            foreach (var name in storages.Keys)
+            {
+                Console.WriteLine($"- {name}");
+            }
+        }
     }
 }
