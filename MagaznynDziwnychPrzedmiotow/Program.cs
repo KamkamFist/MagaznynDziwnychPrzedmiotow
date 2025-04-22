@@ -78,5 +78,26 @@ class Program
             Console.WriteLine("Magazyn nie istnieje.");
             return null;
         }
+        static void AddItemToStorage()
+        {
+            var storage = GetStorage();
+            if (storage == null) return;
+
+            Console.Write("Nazwa przedmiotu: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Waga (kg): ");
+            double weight = double.Parse(Console.ReadLine());
+
+            Console.Write("Poziom dziwności (1-10): ");
+            int weirdness = int.Parse(Console.ReadLine());
+
+            Console.Write("Czy delikatny (tak/nie): ");
+            string fragileInput = Console.ReadLine().ToLower();
+            bool isFragile = fragileInput == "tak";
+
+            var item = new Item(name, weight, weirdness, isFragile);
+            storage.AddItem(item);
+        }
     }
 }
