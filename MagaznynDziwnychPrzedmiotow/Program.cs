@@ -124,5 +124,13 @@ class Program
             double threshold = double.Parse(Console.ReadLine());
             storage.PrintFragileOrHeavy(threshold);
         }
+        static void PrintAverageWeirdness()
+        {
+            var storage = GetStorage();
+            if (storage == null) return;
+
+            double avg = storage.CalculateAverageWeirdness();
+            Console.WriteLine($"Średnia dziwność: {avg:F2}");
+        }
     }
 }
