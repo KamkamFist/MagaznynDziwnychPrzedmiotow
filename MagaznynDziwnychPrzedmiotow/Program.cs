@@ -67,5 +67,16 @@ class Program
             storages[name] = new Storage(name, capacity, maxWeight);
             Console.WriteLine("Magazyn utworzony.");
         }
+        static Storage GetStorage()
+        {
+            Console.Write("Podaj nazwę magazynu: ");
+            string name = Console.ReadLine();
+            if (storages.ContainsKey(name))
+            {
+                return storages[name];
+            }
+            Console.WriteLine("Magazyn nie istnieje.");
+            return null;
+        }
     }
 }
