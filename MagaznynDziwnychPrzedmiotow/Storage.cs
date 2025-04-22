@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Storage
 {
+    public string Name { get; private set; }
     public int Capacity { get; private set; }
     public int CurrentItemCount { get; private set; } = 0;
     public double MaxTotalWeight { get; private set; }
@@ -10,12 +11,12 @@ public class Storage
 
     private List<Item> items = new List<Item>();
 
-    public Storage(int capacity, double maxTotalWeight)
+    public Storage(string name, int capacity, double maxTotalWeight)
     {
+        Name = name;
         Capacity = capacity;
         MaxTotalWeight = Math.Round(maxTotalWeight, 3);
     }
-
 
     public bool AddItem(Item item)
     {

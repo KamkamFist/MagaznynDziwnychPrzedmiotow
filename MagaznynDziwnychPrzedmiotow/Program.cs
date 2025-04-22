@@ -53,5 +53,19 @@ class Program
                     break;
             }
         }
+        static void CreateStorage()
+        {
+            Console.Write("Podaj nazwę magazynu: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Podaj pojemność: ");
+            int capacity = int.Parse(Console.ReadLine());
+
+            Console.Write("Podaj maksymalną wagę: ");
+            double maxWeight = double.Parse(Console.ReadLine());
+
+            storages[name] = new Storage(name, capacity, maxWeight);
+            Console.WriteLine("Magazyn utworzony.");
+        }
     }
 }
