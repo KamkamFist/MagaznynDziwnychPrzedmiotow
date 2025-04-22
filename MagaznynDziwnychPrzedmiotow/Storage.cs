@@ -89,7 +89,27 @@ public class Storage
         }
     }
 
-    
+    public double CalculateAverageWeirdness()
+    {
+        int weirdnessSum = 0;
+        float averageWeirdness = 0.0f;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            weirdnessSum += items[i].WeirdnessLevel;
+        }
+
+        if (items.Count > 0)
+        {
+            averageWeirdness = (float)weirdnessSum / items.Count;
+            return averageWeirdness;
+        }
+        else
+        {
+            Console.WriteLine("Brak przedmiotów w magazynie.");
+            return 0;
+        }
+    }
 
 }
 
