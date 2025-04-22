@@ -45,4 +45,36 @@ public class Storage
             Console.WriteLine(item.Describe());
         }
     }
+
+
+    public void RemoveItem(string itemName)
+    {
+        bool firstItemFound = false;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Name == itemName)
+            {
+                currentWeight -= items[i].WeightKg;
+                CurrentItemCount--;
+                items.RemoveAt(i);
+                Console.WriteLine("Item removed successfully.");
+                firstItemFound = true;
+                if(firstItemFound == true)
+                {
+                    break;
+                }
+            }
+        }
+        if (firstItemFound == false)
+        {
+            Console.WriteLine("Item not found.");
+        }
+      
+    }
+
+
+    
+
+   
 }
+
