@@ -73,9 +73,23 @@ public class Storage
       
     }
 
+    public void PrintFragileOrHeavy(double weightThreshold)
+    {
+        var filtered = items.Where(i => i.IsFragile || i.WeightKg > weightThreshold).ToList();
+
+        if (filtered.Count == 0)
+        {
+            Console.WriteLine("Brak przedmiotów spełniających kryteria.");
+            return;
+        }
+
+        foreach (var item in filtered)
+        {
+            Console.WriteLine(item.Describe());
+        }
+    }
 
     
 
-   
 }
 
