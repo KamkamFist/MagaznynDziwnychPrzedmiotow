@@ -108,5 +108,12 @@ class Program
             string itemName = Console.ReadLine();
             storage.RemoveItem(itemName);
         }
+        static void PrintItemsFromStorage()
+        {
+            var storage = GetStorage();
+            if (storage == null) return;
+
+            storage.PrintAll();
+        }
     }
 }
