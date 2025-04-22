@@ -15,5 +15,15 @@ public class Item
         IsFragile = isFragile;
     }
 
-  
+    public string Describe()
+    {
+        string fragility = IsFragile ? "TAK" : "NIE";
+        return
+$@"{{
+    ""nazwa"": ""{Name}"",
+    ""waga_kg"": {WeightKg},
+    ""poziom_dziwnosci"": {WeirdnessLevel},
+    ""czy_delikatny"": {fragility}
+}}";
+    }
 }
