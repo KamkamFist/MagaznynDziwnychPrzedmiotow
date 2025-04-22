@@ -16,6 +16,7 @@ public class Storage
         MaxTotalWeight = Math.Round(maxTotalWeight, 3);
     }
 
+
     public bool AddItem(Item item)
     {
         if (CurrentItemCount >= Capacity)
